@@ -1,0 +1,112 @@
+{
+  "chef": {
+    "id": "chef", "name": "厨师", "maxHp": 10, "atk": 3,
+    "fort": { "name": "铁锅", "hp": 8 },
+    "skills": [
+      { "name": "小菜一碟", "target": "ally" },
+      { "name": "献鱼", "target": "enemy" }
+    ],
+    "params": { "dishBonus": 1, "fishWin": 8, "fishLose": 4 }
+  },
+  "vampire": {
+    "id": "vampire", "name": "吸血鬼", "maxHp": 8, "atk": 2,
+    "fort": { "name": "古堡", "hp": 5, "effect": "reflect_first" },
+    "skills": [
+      { "name": "吸血", "target": "enemy" }
+    ],
+    "params": {}
+  },
+  "miner": {
+    "id": "miner", "name": "矿工", "maxHp": 10, "atk": 4,
+    "fort": { "name": "爆裂矿车", "hp": 6 },
+    "skills": [
+      { "name": "下井", "target": "none" },
+      { "name": "地道战", "target": "enemy" }
+    ],
+    "params": { "startOre": 2 }
+  },
+  "doctor": {
+    "id": "doctor", "name": "医生", "maxHp": 10, "atk": 3,
+    "fort": { "name": "冰箱", "hp": 8 },
+    "skills": [
+      { "name": "麻醉", "target": "enemy" }
+    ],
+    "params": {}
+  },
+  "police": {
+    "id": "police", "name": "警察", "maxHp": 10, "atk": 3,
+    "fort": { "name": "警车", "hp": 8 },
+    "skills": [
+      { "name": "逮捕", "target": "enemy" },
+      { "name": "开罚单", "target": "enemy" }
+    ],
+    "params": {}
+  },
+  "farmer": {
+    "id": "farmer", "name": "农夫", "maxHp": 10, "atk": 3,
+    "lanes": {
+      "far": { "name": "稻草人", "hp": 5 },
+      "near": { "name": "粮食", "hp": 5 },
+      "count": 3
+    },
+    "skills": [
+      { "name": "播种", "target": "none" },
+      { "name": "粒粒皆辛苦", "target": "none" }
+    ],
+    "params": {}
+  },
+  "carpenter": {
+    "id": "carpenter", "name": "木匠", "maxHp": 10, "atk": 2,
+    "fort": { "name": "木工台", "hp": 8 },
+    "skills": [
+      { "name": "修理", "target": "ally" },
+      { "name": "机关", "target": "enemy" }
+    ],
+    "params": { "repair": 3 }
+  },
+  "swordsman": {
+    "id": "swordsman", "name": "剑客", "maxHp": 10, "atk": 6,
+    "fort": { "name": "葫芦", "hp": 5, "count": 2 },
+    "skills": [
+      { "name": "剑仙", "target": "none" }
+    ],
+    "params": {}
+  },
+  "builder": {
+    "id": "builder", "name": "建筑工人", "maxHp": 10, "atk": 4,
+    "fort": { "name": "楼盘", "hp": 10 },
+    "skills": [
+      { "name": "拆迁大队", "target": "enemy" }
+    ],
+    "params": { "demoDmg": 8 }
+  },
+  "blacksmith": {
+    "id": "blacksmith", "name": "铁匠", "maxHp": 10, "atk": 3,
+    "fort": { "name": "锻造炉", "hp": 8 },
+    "skills": [
+      { "name": "铸剑", "target": "ally" },
+      { "name": "重铸", "target": "ally" },
+      { "name": "断剑", "target": "ally" },
+      { "name": "锻甲", "target": "ally" }
+    ],
+    "params": { "startIron": 5, "swordAtk": 2, "recastMax": 3, "recastCost": 2, "breakSwordAtk": -1, "armorIron": 3, "armorHp": 5 }
+  },
+  "merchant": {
+    "id": "merchant", "name": "商人", "maxHp": 8, "atk": 2,
+    "fort": { "name": "商店", "hp": 7 },
+    "skills": [
+      { "name": "贿赂", "target": "enemy" },
+      { "name": "强买强卖", "target": "enemy" }
+    ],
+    "params": { "startGold": 10, "buffCost": 6, "healCost": 2, "cleanCost": 4, "buyFortCost": 5, "winCost": 100, "shoveGold": 3 }
+  },
+  "gambler": {
+    "id": "gambler", "name": "赌徒", "maxHp": 10, "atk": 2,
+    "fort": { "name": "筹码", "hp": 6 },
+    "skills": [
+      { "name": "孤注一掷", "target": "enemy" },
+      { "name": "老千", "target": "enemy" }
+    ],
+    "params": { "allInWin": 8, "allInLose": 5, "cheatDmg": 4, "cheatSelf": 1 }
+  }
+}

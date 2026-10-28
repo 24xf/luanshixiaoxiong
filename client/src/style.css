@@ -1,0 +1,205 @@
+:root{--bg:#0b1622;--bg2:#192a40;--card:#20354f;--card2:#2a4060;--line:#3a5a80;--muted:#5a7a9a;--text:#dde4ec;--accent:#4ac0a0;--accent2:#e8b84a;--danger:#e05050;--hp:#38b878;--radius:10px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;font-size:14px;display:flex;align-items:center;justify-content:center;min-height:100vh}
+button{background:var(--card2);color:var(--text);border:1px solid var(--line);border-radius:var(--radius);padding:7px 16px;cursor:pointer;font-size:13px;transition:.1s}
+button:hover{background:var(--line)}
+button.primary{background:var(--accent);color:#000;border:none;font-weight:700}
+button.primary:hover{filter:brightness(1.2)}
+button.secondary{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+button.ghost{background:transparent;border-color:transparent;color:var(--muted)}
+button.ghost:hover{border-color:var(--muted)}
+button.small{padding:4px 12px;font-size:12px}
+button.big{padding:10px 28px;font-size:16px}
+input,select{background:var(--card2);color:var(--text);border:1px solid var(--line);border-radius:var(--radius);padding:6px 10px;font-size:13px}
+.hidden{display:none!important}
+#app{width:100%}
+
+/* 连接 */
+#connBar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:flex-end;padding:2px 12px}
+.conn{font-size:10px;padding:2px 8px;border-radius:0 0 6px 6px}
+.conn.ok{background:var(--accent);color:#000}
+.conn.bad{background:var(--danger);color:#fff}
+.conn-banner{position:fixed;top:24px;left:50%;transform:translateX(-50%);z-index:90;padding:8px 18px;border-radius:var(--radius);background:var(--danger);color:#fff;font-size:14px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,.5);max-width:80vw;text-align:center}
+.conn-banner.ok{background:var(--accent);color:#000}
+#toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.9);color:#fff;padding:10px 24px;border-radius:var(--radius);z-index:200;font-size:15px;pointer-events:none;white-space:nowrap}
+
+/* ===== 大厅（居中）===== */
+.lobby{max-width:400px;text-align:center;margin:0 auto}
+.lobby-title{font-size:26px;font-weight:800;margin-bottom:20px;color:var(--accent2);letter-spacing:2px}
+.btn-group{display:flex;gap:10px;justify-content:center;margin:14px 0}
+.divider{color:var(--muted);font-size:12px;margin:16px 0}
+.form-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;justify-content:center}
+#joinId{letter-spacing:2px;font-weight:700}
+
+/* ===== 房间 ===== */
+.panel{background:var(--bg2);border-radius:var(--radius);padding:18px;border:1px solid var(--line);margin:10px auto;max-width:640px}
+.top-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.room-id{font-size:20px;font-weight:700;letter-spacing:3px;color:var(--accent2);flex:1}
+.config-section{background:var(--card);border-radius:var(--radius);padding:10px 14px;margin-bottom:10px}
+.config-title{font-weight:700;font-size:14px;margin-bottom:6px;color:var(--accent)}
+.hint{font-size:12px;color:var(--muted);margin-bottom:8px}
+#setSeg{display:flex;gap:4px;flex-wrap:wrap}
+.seg-btn{padding:4px 10px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line);cursor:pointer;font-size:11px}
+.seg-btn.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.btn-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.member-list{margin:8px 0}
+.mrow{display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:6px}
+.mrow.me{background:var(--card)}
+.mname{min-width:60px;font-size:13px}
+.mhero{font-size:12px;color:var(--accent2)}
+.tag-you{font-size:10px;background:var(--accent);color:#000;padding:1px 6px;border-radius:4px}
+.mhost{font-size:10px;background:var(--accent2);color:#000;padding:1px 6px;border-radius:4px}
+
+/* ===== 游戏 ===== */
+.game{display:flex;flex-direction:column;height:100vh;width:100%}
+#topBar{display:flex;align-items:center;gap:8px;padding:4px 10px;background:var(--bg2);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+#turnInfo{font-weight:700;font-size:13px;flex:1}
+.top-right{display:flex;align-items:center;gap:4px}
+.timer-wrap{display:flex;align-items:center;gap:4px;font-size:10px;width:100px}
+.timer-bar{flex:1;height:4px;background:var(--card);border-radius:2px;overflow:hidden}
+.timer-bar i{display:block;height:100%;background:var(--accent2);transition:width .1s linear}
+.round-banner{padding:4px 10px;font-size:11px;background:var(--bg2);border-bottom:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap}
+.rb-title{font-weight:700}
+.event-banner{padding:6px 10px;font-size:12px;background:linear-gradient(90deg,rgba(255,176,32,.16),rgba(255,176,32,.06));border-bottom:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.eb-item{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;background:rgba(255,176,32,.18);color:var(--accent2);font-weight:600;white-space:nowrap}
+
+/* ===== 棋盘 ===== */
+.board{flex:1;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:8px;padding:8px;overflow-y:auto;padding-bottom:180px}
+.pcard{width:170px;min-height:130px;background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:6px 8px;font-size:11px;display:flex;flex-direction:column;gap:2px;transition:.12s}
+.pcard:hover{border-color:var(--muted)}
+.pcard.dead{opacity:.4;border-color:#3a2a2a}
+.pcard.targetable{border-color:var(--accent2);cursor:pointer}
+.pcard.targetable:hover{border-color:#f0d060;box-shadow:0 0 8px rgba(232,184,74,.3)}
+.pcard.sel{box-shadow:0 0 0 3px var(--accent2),0 0 14px rgba(232,184,74,.25);border-color:var(--accent2)}
+.pcard.active-actor{border-color:#a080ff;box-shadow:0 0 0 2px #a080ff}
+
+/* 自己全宽底边 */
+.pcard.me{width:100%;max-width:800px;min-height:160px;border-color:var(--accent);order:9999;margin:0 auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 16px}
+.pcard.me .pcard-header{width:100%}
+.pcard.me .hp-text{font-size:16px}
+.pcard.me .bar.me-hp{width:150px}
+.pcard.me .fort-row{font-size:13px}
+.pcard.me .fort-compact{display:flex;gap:8px}
+.pcard.me .fort-block{min-width:80px}
+.pcard.me .lanes{font-size:12px}
+.pcard-header{display:flex;justify-content:space-between;align-items:center;gap:4px;width:100%}
+.pname{font-weight:700;font-size:13px}
+
+/* 工事图形 */
+.fort-row{display:flex;align-items:center;gap:4px}
+.fort-arr{color:var(--muted);font-size:12px}
+.fort-hero{font-size:16px;color:var(--accent)}
+.fort-block{background:var(--card2);border:1px solid var(--line);border-radius:5px;padding:2px 6px;text-align:center;font-size:10px;min-width:60px}
+.fort-block.ok{border-color:#3a7a5a}
+.fort-block.dead{border-color:#4a2a2a;opacity:.7}
+.fort-block.empty{border-color:#2a3a3a;color:var(--muted)}
+.fort-bar{height:4px;background:#2a3a3a;border-radius:2px;overflow:hidden;margin-bottom:2px}
+.fort-bar i{display:block;height:100%;background:var(--accent2)}
+.fort-label{font-size:9px}
+.fort-compact{display:flex;gap:4px}
+.fort-compact .fort-block{min-width:50px}
+
+/* 车道 */
+.lanes{font-size:10px}
+.lane{display:flex;gap:4px;margin-bottom:1px}
+.resources{font-size:10px;display:flex;gap:4px;flex-wrap:wrap}
+.res-icon{background:var(--card2);padding:1px 4px;border-radius:3px}
+.pdata{font-size:10px;color:var(--muted);margin-top:auto}
+.bar{height:6px;background:#2a3a4a;border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;transition:width .3s}
+.hp-text{font-weight:700;font-size:12px}
+.badges{display:flex;flex-wrap:wrap;gap:2px}
+.badge{font-size:9px;padding:1px 5px;border-radius:3px}
+.badge.ana{background:#2a1a4a;color:#b080ff}.badge.arr{background:#4a1a1a;color:#ff8080}.badge.chg{background:#3a3a1a;color:#e8d060}.badge.deadb{background:#300;color:#ff6060}.badge.botb{background:#1a3a3a}.badge.offb{background:#4a3a1a;color:#e0b060}.badge.act{background:#1a1a4a;color:#80a0ff}.badge.sa{background:#1a3a3a;color:var(--accent2)}.badge.ft{background:#3a1a3a;color:#ff80e0}
+
+/* ===== 底部面板 ===== */
+.action-bar,.throw-panel,.wait-panel{position:fixed;bottom:0;left:0;right:0;z-index:50;background:var(--bg2);border-top:1px solid var(--line);max-width:100vw;margin:0;border-radius:var(--radius) var(--radius) 0 0;padding:8px 14px;box-shadow:0 -4px 20px rgba(0,0,0,.5)}
+.throw-panel{text-align:center;max-width:450px;margin:0 auto;left:50%;transform:translateX(-50%)}
+.wait-panel{text-align:center;padding:24px;font-size:15px;color:var(--muted)}
+.target-text{font-size:12px;color:var(--accent2)}
+.followup-row{display:flex;align-items:center;gap:4px;font-size:11px}
+.actor-row{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px}
+.achip{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:3px 8px;cursor:pointer;font-size:11px}
+.achip.sel{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.achip:hover{border-color:var(--muted)}
+
+/* ===== 日志 ===== */
+.log-box{position:fixed;bottom:200px;right:6px;width:240px;max-height:300px;overflow-y:auto;font-size:10px;background:rgba(13,27,42,.95);border:1px solid var(--line);border-radius:var(--radius);padding:4px 8px;z-index:40}
+.log-box div{margin:1px 0;color:var(--muted)}
+.log-box::-webkit-scrollbar{width:4px}
+.log-box::-webkit-scrollbar-thumb{background:var(--line);border-radius:2px}
+
+/* ===== 遮罩 ===== */
+.overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);z-index:300;display:flex;align-items:center;justify-content:center}
+.overlay .box{text-align:center}
+.overlay .big{font-size:22px;margin-bottom:16px}
+
+@media (max-width:640px){.board{gap:4px;padding:4px;padding-bottom:200px}.pcard{width:44%;min-height:100px;font-size:9px;padding:4px}.pcard.me{width:100%;min-height:120px}.log-box{width:160px}}
+.modal-box{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-width:280px;max-width:90vw;text-align:center}
+.modal-title{font-weight:700;font-size:16px;color:var(--accent2);margin-bottom:4px}
+
+/* ===== #18 Phase2 账号栏 + 登录弹窗 ===== */
+.account-bar{position:fixed;top:8px;right:12px;z-index:80;display:flex;align-items:center;gap:8px}
+.account-bar .ab-user{font-size:13px;color:var(--text);background:var(--bg2);border:1px solid var(--line);padding:4px 10px;border-radius:var(--radius)}
+.auth-modal .form-row{justify-content:center;margin:8px 0}
+.auth-modal input{width:230px;max-width:80vw}
+.auth-err{color:var(--danger);font-size:13px;min-height:18px;margin:2px 0 4px}
+
+/* ===== #18 Phase3 房间码书签面板（大厅内）===== */
+.bookmarks-panel{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius);padding:10px 14px;background:var(--bg2)}
+.bookmarks-panel .bm-title{font-size:13px;font-weight:700;color:var(--accent2);margin-bottom:8px}
+.bookmarks-panel .bm-list{display:flex;flex-direction:column;gap:6px}
+.bookmarks-panel .bm-item{display:flex;align-items:center;gap:8px;font-size:13px}
+.bookmarks-panel .bm-code{flex:1;text-align:left;color:var(--text)}
+
+/* ===== #18 Phase4 档案页 + 回放播放器 ===== */
+#profile{max-width:680px}
+.profile-body{display:flex;flex-direction:column;gap:12px}
+.prof-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px}
+.prof-name{font-size:18px;font-weight:800;color:var(--accent2)}
+.prof-title{font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.prof-subtitle{font-size:12px;color:var(--accent2);margin:10px 0 4px}
+.empty{color:var(--muted);font-size:12px;padding:6px 0}
+.loading{color:var(--muted);font-size:12px;padding:6px 0}
+.stat-row{display:flex;justify-content:space-between;font-size:13px;padding:2px 0;color:var(--text)}
+.stat-row b{color:var(--accent2)}
+.winrate-bar{height:8px;background:#2a3a4a;border-radius:4px;overflow:hidden;margin:6px 0}
+.winrate-bar i{display:block;height:100%;background:var(--accent)}
+.hero-usage{display:flex;align-items:center;gap:8px;font-size:12px;margin:3px 0}
+.hu-name{width:96px;flex-shrink:0}
+.hu-bar{flex:1;height:8px;background:#2a3a4a;border-radius:4px;overflow:hidden}
+.hu-bar i{display:block;height:100%;background:var(--accent2)}
+.hu-cnt{color:var(--muted);width:42px;text-align:right;flex-shrink:0}
+.fav-grid{display:flex;flex-wrap:wrap;gap:6px}
+.fav-chip{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:4px 12px;font-size:13px}
+
+/* 回放列表 */
+.replay-list{display:flex;flex-direction:column;gap:6px}
+.replay-item{display:flex;align-items:center;gap:10px;background:var(--card2);border:1px solid var(--line);border-radius:var(--radius);padding:8px 12px;cursor:pointer;font-size:13px}
+.replay-item:hover{border-color:var(--accent);background:var(--line)}
+.ri-mode{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1px 8px;font-size:11px;color:var(--accent2)}
+.ri-result{flex-shrink:0;width:28px;text-align:center;font-weight:700}
+.ri-result.胜{color:var(--accent)}
+.ri-result.负{color:var(--danger)}
+.ri-result.平{color:var(--muted)}
+.ri-meta{flex:1;color:var(--muted);text-align:right;font-size:12px}
+
+/* 回放播放器 */
+#replay{max-width:1040px}
+.replay-body{display:flex;gap:14px;align-items:flex-start}
+.replay-board{flex:1;min-height:240px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:10px}
+.replay-board .pcard{width:150px;min-height:120px}
+.replay-board .pcard.me{width:150px;min-height:120px;border-color:var(--line);order:0;margin:0;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;padding:6px 8px}
+.replay-side{width:320px;flex-shrink:0;display:flex;flex-direction:column;gap:8px}
+.replay-controls{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.replay-turn{margin-left:auto;font-size:12px;color:var(--accent2);font-weight:700}
+.replay-scrub{width:100%;accent-color:var(--accent)}
+.replay-roundinfo{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;font-size:12px}
+.ri-head{font-weight:700;font-size:13px;margin-bottom:4px;color:var(--accent2)}
+.rb-line{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.ri-events{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0}
+.ri-winners{color:var(--accent);font-size:12px;margin-top:2px}
+.replay-log{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;font-size:11px;max-height:220px;overflow-y:auto;color:var(--muted)}
+.replay-log div{margin:1px 0}
+
+@media (max-width:860px){.replay-body{flex-direction:column}.replay-side{width:100%}}

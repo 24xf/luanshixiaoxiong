@@ -1,0 +1,29 @@
+# ---- 依赖 ----
+node_modules/
+
+# ---- 构建产物 ----
+dist/
+public/dist/
+coverage/
+
+# ---- 运行时数据 / 压测产物 ----
+data/
+*.db
+*.sqlite
+
+# ---- 日志 ----
+*.log
+
+# ---- 环境变量与密钥 ----
+.env
+.env.*
+!.env.example
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- WorkBuddy 工作区数据 ----
+.workbuddy/
